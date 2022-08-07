@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
+import { setAvatarRoute } from '../utils/api-routes';
 import { Buffer } from 'buffer';
 import loader from '../assets/loader.gif';
 
@@ -25,6 +26,20 @@ export default function SetAvatar() {
     const setProfilePicture = async() => {
         if(selectedAvatar===undefined){
             toast.error("Please select an avatar.", toastOptions);
+        }
+        else {
+            const user = await JSON.parse(localStorage.getItem("chat-app-user"));
+            const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
+                image: avatars[selectedAvatar]
+            });
+            if(data.isSet){
+                user.isAvatarImageSet = true;
+                user.avatarImage = data.image;
+                localStorage.setItem("chat-app-user", JSON.stringify(user));
+                navigate('/');
+            } else {
+                toast.error("Error setting avatar. Please refresh and try again..", toastOptions);
+            }
         }
     };
 

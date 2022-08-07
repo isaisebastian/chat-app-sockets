@@ -40,4 +40,18 @@ module.exports.login = async(req, resp) => {
     } catch(err){
         resp.status(500).json(err);
     }
-}
+};
+
+module.exports.setAvatar = async(req, resp, next) => {
+    try{
+        const userId = req.params.id;
+        const avatarImage = req.body.image;
+        const userData = await User.findByIdAndUpdate(userId, {
+            isAvatarImageSet: true,
+            avatarImage,
+        });
+        return resp.json({isSet: userData.isAvatarImageSet, image: userData.avatarImage});
+    } catch(err){
+        next(err);
+    }
+};
