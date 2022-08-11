@@ -50,6 +50,10 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: 5% 95%;
     align-items: center;
+    @media screen and (min-width: 720px) and (max-width: 1080px) {
+        padding: 0 1rem;
+        gap: 1rem;
+    }
     background-color: #080420;
     padding: 0 2rem;
     padding-bottom: 0.3rem;
@@ -124,6 +128,12 @@ const Container = styled.div`
             align-items: center;
             background-color: #9a86f3;
             border: none;
+            @media screen and (min-width: 720px) and (max-width: 1080px) {
+                padding: 0.3rem 1rem;
+                svg {
+                    font-size: 1rem;
+                }
+            }
             svg {
                 font-size: 2rem;
                 color: white;
