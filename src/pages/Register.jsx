@@ -74,7 +74,7 @@ function Register() {
             <form onSubmit={(e) => handleSubmit(e)}>
                 <div className="brand">
                     <img src={Logo} alt="logo" />
-                    <h1>snappy</h1>
+                    <h1>chatty</h1>
                 </div>
                 <input type="text" placeholder="Username" name="username" onChange={e => handleChange(e)} />
                 <input type="email" placeholder="Email" name="email" onChange={e => handleChange(e)} />
@@ -96,7 +96,7 @@ const FormContainer = styled.div`
     width: 100vw;
     display: flex;
     flex-direction: column;
-    justify-center: center;
+    justify-content: center;
     gap: 1rem;
     align-items: center;
     background-color: #131324;
