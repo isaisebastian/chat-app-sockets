@@ -10,6 +10,7 @@ npm install
 2. Provide your environment variables inside .env file:
 MONGO_URL="mongodb://localhost:27017/chat"
 PORT=5000
+3. npm start
 ```
 #### Built with: 
 - [react styled-components](https://styled-components.com/)
